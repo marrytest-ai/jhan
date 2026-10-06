@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>제이한 인테리어 | 천안 인테리어</title>
+
+  <meta name="description" content="천안 아파트 인테리어, 주방, 욕실 및 부분 인테리어 전문 제이한입니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 상단 메뉴 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .nav-menu a:hover {
+      color: #111;
+    }
+
+    /* 메인 */
+    .hero {
+      min-height: 720px;
+      padding-top: 76px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-small {
+      font-size: 15px;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.2;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      color: #f5f5f5;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      background: #fff;
+      color: #222;
+      font-weight: 700;
+      border-radius: 2px;
+      margin-right: 10px;
+    }
+
+    .btn.dark {
+      background: #222;
+      color: #fff;
+    }
+
+    /* 공통 */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      font-size: 13px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      letter-spacing: -2px;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      margin-top: 14px;
+      color: #777;
+    }
+
+    /* 소개 */
+    .about {
+      background: #f7f6f3;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 470px;
+      background:
+        url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85")
+        center/cover no-repeat;
+    }
+
+    .about-text h3 {
+      font-size: 32px;
+      line-height: 1.4;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .about-text p {
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    /* 서비스 */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      border: 1px solid #e8e8e8;
+      padding: 35px 25px;
+      min-height: 210px;
+      transition: 0.3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .service-number {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    .service h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* 시공 사례 */
+    .portfolio {
+      background: #fafafa;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .portfolio-item {
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 25px;
+      color: white;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+
+    .portfolio-caption h3 {
+      font-size: 19px;
+    }
+
+    /* 과정 */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .process-item {
+      padding: 30px 15px;
+    }
+
+    .process-number {
+      width: 55px;
+      height: 55px;
+      border: 1px solid #222;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-weight: bold;
+    }
+
+    .process-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .process-item p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* 상담 */
+    .contact {
+      background: #222;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 42px;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: #bbb;
+      margin-bottom: 32px;
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      background: white;
+      color: #222;
+      padding: 15px 28px;
+      margin: 5px;
+      font-weight: 700;
+    }
+
+    /* 푸터 */
+    footer {
+      background: #171717;
+      color: #aaa;
+      padding: 30px 0;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* 모바일 */
+    @media (max-width: 800px) {
+
+      .nav-menu {
+        display: none;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-image {
+        height: 330px;
+      }
+
+      .services {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">제이한</a>
+
+    <nav class="nav-menu">
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICE</a>
+      <a href="#portfolio">PROJECT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+  <!-- 메인 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-small">
+          CHEONAN INTERIOR DESIGN
+        </div>
+
+        <h1>
+          공간을 바꾸면<br>
+          생활이 달라집니다.
+        </h1>
+
+        <p>
+          천안의 주거공간과 상업공간을 위한<br>
+          감각적이고 실용적인 인테리어.
+        </p>
+
+        <a href="#portfolio" class="btn">
+          시공 사례 보기
+        </a>
+
+        <a href="#contact" class="btn dark">
+          상담 문의
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 소개 -->
+  <section class="about" id="about">
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+          <div class="section-title" style="text-align:left; margin-bottom:25px;">
+            <span>ABOUT JEEHAN</span>
+            <h2>제이한</h2>
+          </div>
+
+          <h3>
+            오래 머물고 싶은 공간을<br>
+            만들어드립니다.
+          </h3>
+
+          <p>
+            제이한은 고객의 라이프스타일을 고려하여
+            아름다움과 실용성을 함께 갖춘 공간을 만들어갑니다.
+          </p>
+
+          <p>
+            아파트 인테리어부터 주방, 욕실, 부분 인테리어까지
+            공간의 목적과 고객의 취향에 맞춰 세심하게 진행합니다.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 서비스 -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-title">
+        <span>OUR SERVICE</span>
+        <h2>인테리어 서비스</h2>
+        <p>공간에 필요한 다양한 인테리어 서비스를 제공합니다.</p>
+      </div>
+
+      <div class="services">
+
+        <div class="service">
+          <div class="service-number">01</div>
+          <h3>아파트 인테리어</h3>
+          <p>
+            거실부터 침실까지 전체 공간을
+            라이프스타일에 맞춰 디자인합니다.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-number">02</div>
+          <h3>주방 리모델링</h3>
+          <p>
+            디자인과 수납, 동선을 고려한
+            실용적인 주방 공간을 만듭니다.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-number">03</div>
+          <h3>욕실 리모델링</h3>
+          <p>
+            깔끔하고 편안한 욕실 공간으로
+            새롭게 완성합니다.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-number">04</div>
+          <h3>부분 인테리어</h3>
+          <p>
+            도배, 장판, 필름, 조명 등
+            필요한 부분만 합리적으로 진행합니다.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 시공 사례 -->
+  <section class="portfolio" id="portfolio">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>PROJECT</span>
+        <h2>시공 사례</h2>
+        <p>제이한이 만들어가는 공간입니다.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="아파트 거실 인테리어">
+          <div class="portfolio-caption">
+            <h3>아파트 거실 인테리어</h3>
+            <p>Modern Living</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85" alt="주방 인테리어">
+          <div class="portfolio-caption">
+            <h3>모던 주방 인테리어</h3>
+            <p>Modern Kitchen</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=85" alt="침실 인테리어">
+          <div class="portfolio-caption">
+            <h3>따뜻한 침실 공간</h3>
+            <p>Cozy Bedroom</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 진행 과정 -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>PROCESS</span>
+        <h2>진행 과정</h2>
+      </div>
+
+      <div class="process">
+
+        <div class="process-item">
+          <div class="process-number">01</div>
+          <h3>상담</h3>
+          <p>고객님의 공간과 원하는 방향을 상담합니다.</p>
+        </div>
+
+        <div class="process-item">
+          <div class="process-number">02</div>
+          <h3>디자인</h3>
+          <p>공간에 맞는 디자인과 시공 방향을 제안합니다.</p>
+        </div>
+
+        <div class="process-item">
+          <div class="process-number">03</div>
+          <h3>시공</h3>
+          <p>계획된 일정에 맞춰 꼼꼼하게 시공합니다.</p>
+        </div>
+
+        <div class="process-item">
+          <div class="process-number">04</div>
+          <h3>완료</h3>
+          <p>완성된 공간을 확인하고 마무리합니다.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 상담 -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <h2>인테리어 상담이 필요하신가요?</h2>
+
+      <p>
+        천안 지역 인테리어 상담을 편하게 문의해주세요.
+      </p>
+
+      <div class="contact-buttons">
+
+        <!-- 나중에 실제 전화번호로 변경 -->
+        <a href="tel:0000000000">
+          📞 전화 상담
+        </a>
+
+        <a href="#">
+          💬 상담 문의
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+    <strong>제이한</strong>
+    <br>
+    천안 인테리어
+    <br><br>
+    © 2026 JEEHAN. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
